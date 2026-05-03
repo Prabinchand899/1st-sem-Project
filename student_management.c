@@ -34,6 +34,7 @@ int main() {
     return 0;
 }
 
+// main menu:
 void menu() {
     int choice;
     while(1) {
@@ -65,6 +66,7 @@ void menu() {
     }
 }
 
+//result calculations:
 void calculateResult(Student *s) {
     float total = 0;
     for(int i = 0; i < 5; i++) {
@@ -79,6 +81,7 @@ void calculateResult(Student *s) {
     else strcpy(s->division, "Fail");
 }
 
+// add student data:
 void addStudent() {
     if(studentCount >= MAX_STUDENTS) {
         printf("Maximum limit reached!\n");
@@ -110,6 +113,7 @@ void addStudent() {
     printf("Student added successfully!\n");
 }
 
+//display all data:
 void displayAllStudents() {
     if(studentCount == 0) {
         printf("No records found!\n");
@@ -125,6 +129,7 @@ void displayAllStudents() {
     }
 }
 
+//search student data:
 void searchStudent() {
     int id, found = 0;
     char name[50];
@@ -164,6 +169,7 @@ void searchStudent() {
     if(!found) printf("Student not found!\n");
 }
 
+//update student data:
 void updateStudent() {
     int id, found = 0;
     printf("Enter Student ID to update: ");
@@ -194,6 +200,7 @@ void updateStudent() {
     if(!found) printf("Student not found!\n");
 }
 
+//delete student data:
 void deleteStudent() {
     int id, found = 0;
     printf("Enter Student ID to delete: ");
@@ -213,6 +220,7 @@ void deleteStudent() {
     if(!found) printf("Student not found!\n");
 }
 
+//save the data to file:
 void saveToFile() {
     FILE *fp = fopen(FILENAME, "wb");
     if(fp == NULL) {
@@ -224,6 +232,7 @@ void saveToFile() {
     fclose(fp);
 }
 
+//read data from file:
 void loadFromFile() {
     FILE *fp = fopen(FILENAME, "rb");
     if(fp == NULL) return;
